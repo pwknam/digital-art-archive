@@ -1,0 +1,70 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model User {
+  id Int @id @default(autoincrement())
+  name String
+  Password String
+  collections Collection[]
+  artworks Artwork[]
+
+}
+
+model Collection {
+  id Int @id @default(autoincrement())
+  title String
+  description String
+  artworks Artwork[]
+
+  userId Int @unique
+  user User @relation(fields: [userId], references: [id])
+}
+
+model Artwork {
+  id Int @id @default(autoincrement())
+  title String
+  description String
+  image String
+  type String
+  medium String
+  size String
+  pieces Int
+  Price Int
+  createdAt String
+
+  userId Int @unique
+  user User @relation(fields: [userId], references: [id])
+
+  collectionId Int?
+  collection Collection? @relation(fields: [collectionId], references: [id])
+
+  galleries ArtworkGallery[]
+}
+
+model Gallery{
+  id Int @id @default(autoincrement())
+  name String
+  address String
+  email String
+
+  artworks ArtworkGallery[]
+}
+
+model ArtworkGallery {
+  artworkId Int
+  artwork Artwork @relation(fields: [artworkId], references: [id])
+
+  galleryId Int
+  gallery Gallery @relation(fields: [galleryId], references: [id])
+
+  @@id([artworkId, galleryId])
+}
