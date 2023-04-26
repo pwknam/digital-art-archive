@@ -13,11 +13,11 @@ export default async function ArtworkCRUD() {
     <>
       <h1>Artwork CRUD</h1>
       <h2>All Artworks Below</h2>
-      <ul>
-        {artworks.map((artwork) => {
-          return <li key={artwork.id}>{artwork.title}</li>;
-        })}
-      </ul>
+
+      {artworks.map((artwork) => {
+        return <h1 key={artwork.id}>{artwork.title}</h1>;
+      })}
+
       <Link href="/artwork/create">Go to Artwork Create Page</Link>
     </>
   );
