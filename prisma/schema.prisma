@@ -38,10 +38,10 @@ model Artwork {
   medium String
   size String
   pieces Int
-  Price Int
+  price Int @default(0)
   createdAt String
 
-  userId Int @unique
+  userId Int
   user User @relation(fields: [userId], references: [id])
 
   collectionId Int?
