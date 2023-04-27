@@ -12,8 +12,8 @@ datasource db {
 
 model User {
   id Int @id @default(autoincrement())
-  name String
-  Password String
+  email String @unique
+  password String
   collections Collection[]
   artworks Artwork[]
 
