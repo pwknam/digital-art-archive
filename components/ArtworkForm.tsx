@@ -1,9 +1,16 @@
 "use client";
 import { Artwork } from "@prisma/client";
 import { DOMAttributes, useState } from "react";
+
+// export interface ArtworkFormProps {
+//   handleFormSubmit: (Artwork: Partial<Artwork>) => void;
+// }
+
 export interface ArtworkFormProps {
-  handleFormSubmit: (Artwork: Partial<Artwork>) => void;
+  artwork?: Artwork;
+  handleFormSubmit: (artwork: Partial<Artwork>) => void;
 }
+
 export function ArtworkForm({ handleFormSubmit }: ArtworkFormProps) {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
