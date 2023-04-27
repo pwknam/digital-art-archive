@@ -11,7 +11,7 @@ export default async function ArtworkCRUD() {
 
   return (
     <>
-      <h1>Artwork CRUD</h1>
+      <h1>Artworks</h1>
       <h2>All Artworks Below</h2>
 
       {artworks.map((artwork) => {

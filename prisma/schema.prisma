@@ -25,7 +25,7 @@ model Collection {
   description String
   artworks Artwork[]
 
-  userId Int @unique
+  userId Int 
   user User @relation(fields: [userId], references: [id])
 }
 

@@ -5,6 +5,7 @@ import {
 } from "../../../../components/ArtworkForm";
 import { prisma } from "../../../../lib/prisma";
 import { Artwork } from "@prisma/client";
+import Image from "next/image";
 
 const getArtworkByID = (id: Artwork["id"]): Promise<Artwork | null> => {
   return prisma.artwork.findUnique({ where: { id: Number(id) } });
@@ -29,6 +30,9 @@ const ArtworkEdit = async (props: ArtworkEditProps) => {
     <>
       <h1>Artwork Edit Form</h1>
       <ArtworkEditForm artwork={artwork} />
+      {/* <p>{artwork.title}</p>
+      <Image alt={artwork.title} width={350} height={350} src={artwork.image} />
+      <p>{artwork.description}</p> */}
     </>
   );
 };
