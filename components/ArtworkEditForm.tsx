@@ -8,7 +8,7 @@ interface ArtworkEditFormProps {
   artwork?: Artwork;
 }
 
-export const ArtoworkEditForm: FC<ArtworkEditFormProps> = (props) => {
+export const ArtworkEditForm: FC<ArtworkEditFormProps> = (props) => {
   const id = useParams().id;
 
   const handleFormSubmit: ArtworkFormProps["handleFormSubmit"] = (artwork) => {

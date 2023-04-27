@@ -1,4 +1,4 @@
-import { ArtoworkEditForm } from "../../../../components/ArtworkEditForm";
+import { ArtworkEditForm } from "../../../../components/ArtworkEditForm";
 import {
   ArtworkForm,
   ArtworkFormProps,
@@ -28,7 +28,7 @@ const ArtworkEdit = async (props: ArtworkEditProps) => {
   return (
     <>
       <h1>Artwork Edit Form</h1>
-      <ArtoworkEditForm artwork={artwork} />
+      <ArtworkEditForm artwork={artwork} />
     </>
   );
 };
