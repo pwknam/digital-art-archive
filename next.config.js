@@ -5,6 +5,7 @@ const nextConfig = {
   },
   images: {
     domains: ["images.squarespace-cdn.com"],
+    domains: ["upload.wikimedia.org"],
   },
 };
 
