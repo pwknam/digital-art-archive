@@ -13,7 +13,10 @@ export default function Login() {
   }
 
   return (
-    <form onSubmit={handleSignIn}>
+    <form
+      onSubmit={handleSignIn}
+      style={{ display: "flex", flexDirection: "column" }}
+    >
       <label>Username</label>
       <input
         type="text"
@@ -23,7 +26,7 @@ export default function Login() {
 
       <label>Password</label>
       <input
-        type="text"
+        type="password"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
       ></input>

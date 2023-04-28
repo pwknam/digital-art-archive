@@ -1,3 +1,4 @@
+import NavBar from "../../../components/NavBar";
 import { prisma } from "../../../lib/prisma";
 import Link from "next/link";
 
@@ -11,12 +12,14 @@ export default async function ArtworkCRUD() {
 
   return (
     <>
+      <NavBar />
       <h1>Artworks</h1>
       <h2>All Artworks Below</h2>
-
-      {artworks.map((artwork) => {
-        return <h1 key={artwork.id}>{artwork.title}</h1>;
-      })}
+      <div className="grid grid-cols-4 gap-4">
+        {artworks.map((artwork) => {
+          return <h1 key={artwork.id}>{artwork.title}</h1>;
+        })}
+      </div>
 
       <Link href="/artwork/create">Go to Artwork Create Page</Link>
     </>
