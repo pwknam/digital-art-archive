@@ -33,15 +33,19 @@ export function CollectionForm({ handleFormSubmit }: CollectionFormProps) {
           type="text"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
+          className="bg-gray-100 rounded mb-4 h-8"
         ></input>
         <label>Description</label>
         <input
           type="text"
           value={description}
           onChange={(e) => setDescription(e.target.value)}
+          className="bg-gray-100 rounded mb-4 h-8"
         ></input>
 
-        <button>Submit</button>
+        <button className="rounded bg-orange-400 text-white mb-4 h-8">
+          Submit
+        </button>
       </form>
     </>
   );

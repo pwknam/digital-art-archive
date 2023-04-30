@@ -17,6 +17,7 @@
 }
 
 body {
-  margin-left: 16px;
-  margin-right: 16px;
+  margin-left: 8px;
+  margin-right: 8px;
+  @apply bg-[#ecf0f3] text-[#527fd9] tracking-wide;
 }
