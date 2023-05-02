@@ -1,12 +1,14 @@
-// import { ArtworkEditForm } from "../../../../components/ArtworkEditForm";
-// import {
-//   ArtworkForm,
-//   ArtworkFormProps,
-// } from "../../../../components/ArtworkForm";
+import { ArtworkEditForm } from "../../../../components/ArtworkEditForm";
+import {
+  ArtworkForm,
+  ArtworkFormProps,
+} from "../../../../components/ArtworkForm";
 import { prisma } from "../../../../lib/prisma";
 import { Artwork } from "@prisma/client";
 import Image from "next/image";
 import NavBar from "../../../../components/NavBar";
+import Link from "next/link";
+import DeleteButton from "../../../../components/DeleteButton";
 
 const getArtworkByID = (id: Artwork["id"]): Promise<Artwork | null> => {
   return prisma.artwork.findUnique({
@@ -33,14 +35,21 @@ const ArtworkIdPage = async (props: ArtworkInformation) => {
     return <h1>Artwork not found</h1>;
   }
 
+  const collectionPage = `/collection/${artwork.collection.id}`;
+
   return (
     <>
       <NavBar />
       <div className="flex justify-end">
         <h1>{user?.email}</h1>
       </div>
-      <div className="text-center mb-4">
-        <p className="font-bold text-5xl">Artwork Title: {artwork.title}</p>
+      <div className="text-center mb-4 flex flex-col">
+        <p className="font-bold text-5xl mb-4">
+          Artwork Title: {artwork.title}
+        </p>
+        <Link href={collectionPage}>Go back to Collection Page</Link>
+        <button>Edit Artwork</button>
+        <DeleteButton artwork={artwork} />
       </div>
       <div className="flex flex-col justify-center items-center">
         <Image
@@ -89,7 +98,6 @@ const ArtworkIdPage = async (props: ArtworkInformation) => {
         <p className="font-bold text-2xl mb-2">Description</p>
         <p>{artwork.description}</p>
       </div>
-
       {/* <h2>Galleries:</h2>
       {artwork.galleries.map(async (gallery) => {
         const galleryData = await prisma.gallery.findUnique({
@@ -103,6 +111,7 @@ const ArtworkIdPage = async (props: ArtworkInformation) => {
           </div>
         );
       })} */}
+      <ArtworkEditForm artwork={artwork} />
     </>
   );
 };

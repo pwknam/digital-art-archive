@@ -1,22 +1,19 @@
 "use client";
+import { signIn } from "next-auth/react";
 import Link from "next/link";
 import { useState } from "react";
 
 export default function Home() {
-  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
   function handleFormSubmit(e) {
     e.preventDefault();
-
-    fetch("/api/createAccount", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        email,
-        password,
-      }),
+    signIn("credentials", {
+      username,
+      password,
+      callbackUrl: window.location.origin + "/newEntry",
     });
   }
 
@@ -34,8 +31,8 @@ export default function Home() {
             <input
               className="bg-gray-100 rounded mb-4 h-8"
               type="text"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
             ></input>
 
             <label>Password</label>

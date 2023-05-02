@@ -19,3 +19,15 @@ export const PUT = async (request: Request, context: ArtworkIDRouteParams) => {
 
   return NextResponse.json({ artwork });
 };
+
+export const DELETE = async (
+  request: Request,
+  context: ArtworkIDRouteParams
+) => {
+  const id = Number(context.params.id);
+  const deleteArtwork = await prisma.artwork.delete({
+    where: {
+      id: id,
+    },
+  });
+};

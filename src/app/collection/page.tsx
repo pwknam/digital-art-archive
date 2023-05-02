@@ -1,9 +1,11 @@
+import { getServerSession } from "next-auth";
 import CollectionTile from "../../../components/CollectionTitle";
 import NavBar from "../../../components/NavBar";
 import { prisma } from "../../../lib/prisma";
 import Link from "next/link";
+import { authRouteHandler } from "../api/auth/[...nextauth]/route";
 
-async function getCollections(userId: any) {
+async function getCollections(userId) {
   const data = prisma.collection.findMany({
     where: { userId: userId },
     include: { artworks: true },
@@ -11,9 +13,19 @@ async function getCollections(userId: any) {
   return data;
 }
 
+async function getUser(userId) {
+  const user = prisma.user.findFirst({
+    where: { id: userId },
+  });
+  return user;
+}
+
 export default async function ArtworkCRUD() {
-  const user = await prisma.user.findFirst();
-  const collections = await getCollections(user?.id);
+  const session = await getServerSession(authRouteHandler);
+  const userId = parseInt(session?.user.id);
+
+  const collections = await getCollections(userId);
+  const user = await getUser(userId);
 
   return (
     <>
@@ -21,7 +33,7 @@ export default async function ArtworkCRUD() {
       <div>
         <div className="flex justify-between mb-10">
           <h1 className="font-bold text-4xl">Collections</h1>
-          <h1>{user.email}</h1>
+          <h1 className="text-2xl">{user.email}</h1>
         </div>
 
         <div className="grid grid-cols-4 gap-4 mb-10">
@@ -32,11 +44,11 @@ export default async function ArtworkCRUD() {
             );
           })}
         </div>
-        <div className="flex justify-center">
+        {/* <div className="flex justify-center">
           <Link href="/collection/create" className="font-bold">
             Go to Collection Create Page
           </Link>
-        </div>
+        </div> */}
       </div>
     </>
   );

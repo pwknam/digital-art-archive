@@ -1,11 +1,29 @@
 import NextAuth from "next-auth";
+import type { NextAuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import { prisma } from "../../../../../lib/prisma";
+import { PrismaAdapter } from "@next-auth/prisma-adapter";
 
-const handler = NextAuth({
+export const authRouteHandler: NextAuthOptions = {
   pages: {
     signIn: "/login",
+    newUser: "/",
   },
+  session: {
+    strategy: "jwt",
+  },
+  callbacks: {
+    async session({ session, token, user }) {
+      // Send properties to the client, like an access_token and user id from a provider.
+      // session.accessToken = token.accessToken;
+      session.user.id = token.sub;
+      console.log("user:", user);
+      console.log("token:", token);
+
+      return session;
+    },
+  },
+  adapter: PrismaAdapter(prisma),
   providers: [
     CredentialsProvider({
       // The name to display on the sign in form (e.g. 'Sign in with...')
@@ -31,6 +49,14 @@ const handler = NextAuth({
 
         if (user) {
           return user;
+        } else {
+          const newUser = await prisma.user.create({
+            data: {
+              email: credentials?.username,
+              password: credentials?.password,
+            },
+          });
+          return newUser;
         }
 
         // You need to provide your own logic here that takes the credentials
@@ -56,6 +82,6 @@ const handler = NextAuth({
       },
     }),
   ],
-});
-
+};
+const handler = NextAuth(authRouteHandler);
 export { handler as GET, handler as POST };

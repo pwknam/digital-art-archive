@@ -2,12 +2,12 @@
 import Image from "next/image";
 import Link from "next/link";
 
-export default function ArtworkTile({ artwork }) {
+export default function AddArtworkTile({ artwork }) {
   function handleClick() {
     console.log(`My artwork id is ${artwork.id}`);
   }
 
-  const artPageLink = `/artwork/${artwork.id}`;
+  //   const artPageLink = `/artwork/${artwork.id}`;
 
   return (
     <div
@@ -27,11 +27,11 @@ export default function ArtworkTile({ artwork }) {
           className="rounded"
         />
       </div>
-      <div className="justify-end">
+      {/* <div className="justify-end">
         <Link href={artPageLink} className="underline">
           Click for more information
         </Link>
-      </div>
+      </div> */}
     </div>
   );
 }

@@ -14,8 +14,11 @@ export default function Login() {
 
   function handleSignIn(e: any) {
     e.preventDefault();
-    signIn("credentials", { username, password });
-    router.push("/newEntry");
+    signIn("credentials", {
+      username,
+      password,
+      callbackUrl: window.location.origin + "/newEntry",
+    });
   }
 
   return (

@@ -12,7 +12,7 @@ export const ArtworkEditForm: FC<ArtworkEditFormProps> = (props) => {
   const id = useParams().id;
 
   const handleFormSubmit: ArtworkFormProps["handleFormSubmit"] = (artwork) => {
-    fetch(`/api/artwork/${id}`, {
+    fetch(`/api/artwork/${id}?method=PUT`, {
       method: "PUT",
       body: JSON.stringify(artwork),
     });
