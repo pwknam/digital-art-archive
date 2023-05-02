@@ -25,14 +25,72 @@ interface ArtworkInformation {
 }
 
 const ArtworkIdPage = async (props: ArtworkInformation) => {
-  // Because the path is wrapped in [id], the id is available as a prop
-  // See https://beta.nextjs.org/docs/api-reference/file-conventions/page
   const id = props.params.id;
   const user = await prisma.user.findFirst();
   const artwork = await getArtworkByID(id);
 
   if (!artwork) {
     return <h1>Artwork not found</h1>;
+  }
+
+  if (artwork.collection == null) {
+    return (
+      <>
+        <NavBar />
+        <div className="flex justify-end">
+          <h1>{user?.email}</h1>
+        </div>
+        <div className="text-center mb-4 flex flex-col">
+          <p className="font-bold text-5xl mb-4">
+            Artwork Title: {artwork.title}
+          </p>
+          <button>Edit Artwork</button>
+          <DeleteButton artwork={artwork} />
+        </div>
+        <div className="flex flex-col justify-center items-center">
+          <Image
+            alt={artwork.title}
+            width={700}
+            height={350}
+            src={artwork.image}
+            className="mr-2"
+          />
+        </div>
+        <div className="flex flex-col mb-4 items-center">
+          <h1 className="font-bold text-2xl mb-2">Details</h1>
+
+          <div className="flex mb-2">
+            <p className="mr-1 font-bold">Size:</p>
+            <p>{artwork.size}</p>
+          </div>
+
+          <div className="flex mb-2">
+            <p className="mr-1 font-bold">Type:</p>
+            <p>{artwork.type}</p>
+          </div>
+
+          <div className="flex mb-2">
+            <p className="mr-1 font-bold">Medium:</p>
+            <p>{artwork.medium}</p>
+          </div>
+
+          <div className="flex mb-2">
+            <p className="mr-1 font-bold">Price:</p>
+            <p>${artwork.price}.00</p>
+          </div>
+
+          <div className="flex mb-2">
+            <p className="mr-1 font-bold">Date Created:</p>
+            <p>{artwork.createdAt}</p>
+          </div>
+        </div>
+        <div>
+          <p className="font-bold text-2xl mb-2">Description</p>
+          <p>{artwork.description}</p>
+        </div>
+        <ArtworkEditForm artwork={artwork} />
+      </>
+    );
   }
 
   const collectionPage = `/collection/${artwork.collection.id}`;
@@ -98,19 +156,6 @@ const ArtworkIdPage = async (props: ArtworkInformation) => {
         <p className="font-bold text-2xl mb-2">Description</p>
         <p>{artwork.description}</p>
       </div>
-      {/* <h2>Galleries:</h2>
-      {artwork.galleries.map(async (gallery) => {
-        const galleryData = await prisma.gallery.findUnique({
-          where: { id: gallery.galleryId },
-        });
-        return (
-          <div key={gallery.galleryId}>
-            <h3>{galleryData.name}</h3>
-            <p>Address: {galleryData.address}</p>
-            <p>Email: {galleryData.email}</p>
-          </div>
-        );
-      })} */}
       <ArtworkEditForm artwork={artwork} />
     </>
   );
