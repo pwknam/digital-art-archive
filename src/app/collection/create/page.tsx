@@ -8,7 +8,7 @@ import NavBar from "../../../../components/NavBar";
 
 export default function CollectionCreate() {
   const handleFormSubmit: CollectionFormProps["handleFormSubmit"] = (data) => {
-    fetch("/api/collection", {
+    fetch("/api/collection?method=POST", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),

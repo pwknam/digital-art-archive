@@ -30,8 +30,6 @@ const CollectionIdPage = async (props: CollectionInformation) => {
     return <h1>Collection not found</h1>;
   }
 
-  // console.log(collection.artworks[0].id);
-
   const addArtworksPage = `/collection/${id}/addArtworks`;
 
   return (

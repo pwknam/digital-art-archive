@@ -29,6 +29,7 @@
     "react-dom": "18.2.0",
     "server": "^1.0.38",
     "server-only": "^0.0.1",
+    "swr": "^2.1.5",
     "typescript": "5.0.4"
   },
   "devDependencies": {

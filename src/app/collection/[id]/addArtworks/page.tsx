@@ -2,17 +2,21 @@ import Link from "next/link";
 import NavBar from "../../../../../components/NavBar";
 import AddArtworkTile from "../../../../../components/AddArtworkTile";
 import { prisma } from "../../../../../lib/prisma";
+import { getServerSession } from "next-auth";
+import { authRouteHandler } from "@/app/api/auth/[...nextauth]/route";
 // import { useRouter } from "next/router";
 
-async function getArtworks() {
+async function getArtworks(userId) {
   const data = prisma.artwork.findMany({
-    where: { collectionId: null },
+    where: { userId: userId, collectionId: null },
   });
   return data;
 }
 
 export default async function AddArtworks() {
-  const artworks = await getArtworks();
+  const session = await getServerSession(authRouteHandler);
+  const userId = parseInt(session?.user.id);
+  const artworks = await getArtworks(userId);
 
   return (
     <>
