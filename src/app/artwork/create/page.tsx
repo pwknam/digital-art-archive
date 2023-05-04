@@ -6,7 +6,7 @@ import {
 } from "../../../../components/ArtworkForm";
 import NavBar from "../../../../components/NavBar";
 
-export default function ArtworkCreate() {
+export default async function ArtworkCreate() {
   const handleFormSubmit: ArtworkFormProps["handleFormSubmit"] = (data) => {
     fetch("/api/artwork", {
       method: "POST",

@@ -1,3 +1,4 @@
+import { DELETE } from "./../artwork/[id]/route";
 import { NextResponse } from "next/server";
 import { prisma } from "../../../../lib/prisma";
 import { getServerSession } from "next-auth";
@@ -14,10 +15,3 @@ export async function POST(request: Request) {
   console.log(res);
   return NextResponse.json({ res });
 }
-
-// export async function GET(request: Request) {
-//   const res = await request.json();
-//   const artworks = await prisma.artwork.findMany();
-//   console.log(artworks);
-//   return res.status(200).json({ artworks });
-// }

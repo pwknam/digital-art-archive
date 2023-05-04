@@ -27,11 +27,6 @@ export default function AddArtworkTile({ artwork }) {
           className="rounded"
         />
       </div>
-      {/* <div className="justify-end">
-        <Link href={artPageLink} className="underline">
-          Click for more information
-        </Link>
-      </div> */}
     </div>
   );
 }

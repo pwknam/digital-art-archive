@@ -5,6 +5,7 @@ import ArtworkTile from "../../../components/ArtworkTile";
 // import { useSession } from "next-auth/react";
 import { getServerSession } from "next-auth";
 import { authRouteHandler } from "../api/auth/[...nextauth]/route";
+import DeleteButton from "../../../components/DeleteButton";
 
 async function getArtworks(userId) {
   const data = prisma.artwork.findMany({
@@ -44,14 +45,35 @@ export default async function ArtworkCRUD() {
         <div className="grid grid-cols-4 gap-4 mb-10">
           {artworks.map((artwork) => {
             // return <h1 key={artwork.id}>{artwork.title}</h1>;
-            return <ArtworkTile key={artwork.id} artwork={artwork} />;
+            // return <ArtworkTile key={artwork.id} artwork={artwork} />;
+            return (
+              <div
+                key={artwork.id}
+                className="border-2 rounded border-blue-500 flex flex-col items-center w-100 p-4 shadow-lg justify-between"
+              >
+                <div className="text-center justify-start">
+                  <h1 className="font-bold">Artwork Title</h1>
+                  <h1>{artwork.title}</h1>
+                </div>
+                <div>
+                  <img
+                    src={artwork.image}
+                    alt="image"
+                    width="400"
+                    height="50"
+                    className="rounded"
+                  />
+                </div>
+                <div className="flex flex-col justify-end">
+                  <a href={`/artwork/${artwork.id}`} className="underline">
+                    Click for more information
+                  </a>
+                  <DeleteButton artwork={artwork} />
+                </div>
+              </div>
+            );
           })}
         </div>
-        {/* <div className="flex justify-center">
-          <Link href="/artwork/create" className="font-bold">
-            Go to Artwork Create Page
-          </Link>
-        </div> */}
       </div>
     </>
   );

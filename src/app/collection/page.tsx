@@ -4,6 +4,8 @@ import NavBar from "../../../components/NavBar";
 import { prisma } from "../../../lib/prisma";
 import Link from "next/link";
 import { authRouteHandler } from "../api/auth/[...nextauth]/route";
+import collectionImage from "public/collection.png";
+import DeleteCollectionButton from "../../../components/DeleteCollectionButton";
 
 async function getCollections(userId) {
   const data = prisma.collection.findMany({
@@ -39,16 +41,41 @@ export default async function ArtworkCRUD() {
         <div className="grid grid-cols-4 gap-4 mb-10">
           {collections.map((collection) => {
             // return <h1 key={collection.id}>{collection.title}</h1>;
+            // return (
+            //   <CollectionTile key={collection.id} collection={collection} />
+            // );
             return (
-              <CollectionTile key={collection.id} collection={collection} />
+              <div
+                key={collection.id}
+                className="border-2 rounded border-blue-500 flex flex-col items-center w-100 p-4 shadow-lg justify-between"
+              >
+                <div className="text-center justify-start">
+                  <h1 className="font-bold mb-2">Collection Name</h1>
+                  <h1>{collection.title}</h1>
+                </div>
+                <div className="flex flex-col justify-center items-center">
+                  {/* <img
+                    src={collectionImage}
+                    alt="image"
+                    width="150"
+                    height="50"
+                    className="rounded"
+                  /> */}
+                  <p className="text-center">{collection.description}</p>
+                </div>
+                <div className="justify-end flex flex-col">
+                  <a
+                    href={`/collection/${collection.id}`}
+                    className="underline"
+                  >
+                    Click for more information
+                  </a>
+                  <DeleteCollectionButton collection={collection} />
+                </div>
+              </div>
             );
           })}
         </div>
-        {/* <div className="flex justify-center">
-          <Link href="/collection/create" className="font-bold">
-            Go to Collection Create Page
-          </Link>
-        </div> */}
       </div>
     </>
   );

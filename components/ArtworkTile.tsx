@@ -27,10 +27,11 @@ export default function ArtworkTile({ artwork }) {
           className="rounded"
         />
       </div>
-      <div className="justify-end">
+      <div className="flex flex-col justify-end">
         <Link href={artPageLink} className="underline">
           Click for more information
         </Link>
+        {/* <button className="underline">Delete artwork</button> */}
       </div>
     </div>
   );

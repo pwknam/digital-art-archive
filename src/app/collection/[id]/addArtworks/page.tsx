@@ -4,7 +4,8 @@ import AddArtworkTile from "../../../../../components/AddArtworkTile";
 import { prisma } from "../../../../../lib/prisma";
 import { getServerSession } from "next-auth";
 import { authRouteHandler } from "@/app/api/auth/[...nextauth]/route";
-// import { useRouter } from "next/router";
+import AddArtworkMiddle from "../../../../../components/AddArtworkMiddle";
+import { useEffect, useState } from "react";
 
 async function getArtworks(userId) {
   const data = prisma.artwork.findMany({
@@ -26,6 +27,10 @@ export default async function AddArtworks() {
       <div className="flex justify-center">
         <h1 className="mb-4 font-bold text-2xl">Add more artworks</h1>
       </div>
+
+      {/* <AddArtworkMiddle artworks={artworks} /> */}
+
+      {/*put this in a client side component */}
 
       <div className="grid grid-cols-4 gap-4 mb-10">
         {artworks.map((artwork) => {

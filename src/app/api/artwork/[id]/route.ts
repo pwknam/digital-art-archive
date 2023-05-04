@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { prisma } from "../../../../../lib/prisma";
+import { useEffect } from "react";
 
 interface ArtworkIDRouteParams {
   params: { id: string };
