@@ -5,8 +5,8 @@ import { FC } from "react";
 export default function DeleteButton({ artwork }) {
   const router = useRouter();
 
-  function handleDelete() {
-    fetch(`/api/artwork/${artwork.id}?method=DELETE`, {
+  async function handleDelete() {
+    await fetch(`/api/artwork/${artwork.id}?method=DELETE`, {
       method: "DELETE",
     });
 

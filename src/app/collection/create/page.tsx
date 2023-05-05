@@ -5,14 +5,19 @@ import {
   CollectionFormProps,
 } from "../../../../components/CollectionForm";
 import NavBar from "../../../../components/NavBar";
+import { useRouter } from "next/navigation";
 
 export default function CollectionCreate() {
+  const router = useRouter();
+  console.log(router);
+
   const handleFormSubmit: CollectionFormProps["handleFormSubmit"] = (data) => {
     fetch("/api/collection?method=POST", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),
     });
+    router.push("/collection");
   };
 
   return (

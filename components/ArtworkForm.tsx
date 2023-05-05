@@ -1,5 +1,6 @@
 "use client";
 import { Artwork } from "@prisma/client";
+
 import { DOMAttributes, useState } from "react";
 
 // export interface ArtworkFormProps {
@@ -22,7 +23,8 @@ export function ArtworkForm({ handleFormSubmit }: ArtworkFormProps) {
   const [price, setPrice] = useState(0);
   const [createdAt, setCreatedAt] = useState("");
 
-  function handleFormInputs() {
+  function handleFormInputs(e) {
+    e.preventDefault();
     handleFormSubmit({
       title,
       description,

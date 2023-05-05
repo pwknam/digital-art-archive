@@ -5,14 +5,24 @@ import {
   ArtworkFormProps,
 } from "../../../../components/ArtworkForm";
 import NavBar from "../../../../components/NavBar";
+import { useRouter } from "next/navigation";
 
 export default async function ArtworkCreate() {
-  const handleFormSubmit: ArtworkFormProps["handleFormSubmit"] = (data) => {
-    fetch("/api/artwork", {
+  const router = useRouter();
+  const handleFormSubmit: ArtworkFormProps["handleFormSubmit"] = async (
+    data
+  ) => {
+    const inputData = await fetch("/api/artwork", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),
     });
+
+    if (inputData.status != 200) {
+      console.log(await inputData.json());
+    } else {
+      router.push("/artwork");
+    }
   };
 
   return (
