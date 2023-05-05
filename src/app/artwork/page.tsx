@@ -6,6 +6,7 @@ import ArtworkTile from "../../../components/ArtworkTile";
 import { getServerSession } from "next-auth";
 import { authRouteHandler } from "../api/auth/[...nextauth]/route";
 import DeleteButton from "../../../components/DeleteButton";
+import Image from "next/image";
 
 async function getArtworks(userId) {
   const data = prisma.artwork.findMany({
@@ -56,7 +57,7 @@ export default async function ArtworkCRUD() {
                   <h1>{artwork.title}</h1>
                 </div>
                 <div>
-                  <img
+                  <Image
                     src={artwork.image}
                     alt="image"
                     width="400"

@@ -6,6 +6,7 @@ import { getServerSession } from "next-auth";
 import { authRouteHandler } from "@/app/api/auth/[...nextauth]/route";
 import AddArtworkMiddle from "../../../../../components/AddArtworkMiddle";
 import { useEffect, useState } from "react";
+import Image from "next/image";
 
 async function getArtworks(userId) {
   const data = prisma.artwork.findMany({
@@ -14,27 +15,43 @@ async function getArtworks(userId) {
   return data;
 }
 
-export default async function AddArtworks() {
+async function getSelectedCollection(id) {
+  const data = prisma.collection.findFirst({
+    where: { id: id },
+  });
+  return data;
+}
+
+export default async function AddArtworks(props) {
   const session = await getServerSession(authRouteHandler);
   const userId = parseInt(session?.user.id);
   const artworks = await getArtworks(userId);
+
+  const id = props.params.id;
+
+  const selectedCollection = await getSelectedCollection(Number(id));
 
   return (
     <>
       <NavBar />
 
-      <h1 className="font-bold text-4xl mb-4">**Collection Name**</h1>
+      <h1 className="font-bold text-4xl mb-4">{selectedCollection?.title}</h1>
       <div className="flex justify-center">
-        <h1 className="mb-4 font-bold text-2xl">Add more artworks</h1>
+        <h1 className="mb-4 font-bold text-2xl">
+          Select artworks below to add to your {selectedCollection?.title}{" "}
+          collection{" "}
+        </h1>
       </div>
-
-      {/* <AddArtworkMiddle artworks={artworks} /> */}
-
-      {/*put this in a client side component */}
 
       <div className="grid grid-cols-4 gap-4 mb-10">
         {artworks.map((artwork) => {
-          return <AddArtworkTile key={artwork.id} artwork={artwork} />;
+          return (
+            <AddArtworkTile
+              key={artwork.id}
+              artwork={artwork}
+              collectionId={selectedCollection?.id}
+            />
+          );
         })}
       </div>
       <div className="flex justify-center">

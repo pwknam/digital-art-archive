@@ -6,6 +6,7 @@ import Link from "next/link";
 import { authRouteHandler } from "../api/auth/[...nextauth]/route";
 import collectionImage from "public/collection.png";
 import DeleteCollectionButton from "../../../components/DeleteCollectionButton";
+import Image from "next/image";
 
 async function getCollections(userId) {
   const data = prisma.collection.findMany({
@@ -40,10 +41,6 @@ export default async function ArtworkCRUD() {
 
         <div className="grid grid-cols-4 gap-4 mb-10">
           {collections.map((collection) => {
-            // return <h1 key={collection.id}>{collection.title}</h1>;
-            // return (
-            //   <CollectionTile key={collection.id} collection={collection} />
-            // );
             return (
               <div
                 key={collection.id}
@@ -54,19 +51,19 @@ export default async function ArtworkCRUD() {
                   <h1>{collection.title}</h1>
                 </div>
                 <div className="flex flex-col justify-center items-center">
-                  {/* <img
+                  <Image
                     src={collectionImage}
                     alt="image"
                     width="150"
                     height="50"
                     className="rounded"
-                  /> */}
+                  />
                   <p className="text-center">{collection.description}</p>
                 </div>
-                <div className="justify-end flex flex-col">
+                <div className="justify-end flex flex-col items-center">
                   <a
                     href={`/collection/${collection.id}`}
-                    className="underline"
+                    className="underline mb-2"
                   >
                     Click for more information
                   </a>

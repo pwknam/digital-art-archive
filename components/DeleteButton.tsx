@@ -11,12 +11,6 @@ export default function DeleteButton({ artwork }) {
     });
 
     router.refresh();
-
-    // if (artwork.collection == null) {
-    //   window.location.href = `/artwork`;
-    // } else {
-    //   window.location.href = `/collection/${artwork.collection.id}`;
-    // }
   }
   return (
     <button onClick={handleDelete} className="underline">
