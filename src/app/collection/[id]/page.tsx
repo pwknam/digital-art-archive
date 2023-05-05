@@ -5,6 +5,7 @@ import NavBar from "../../../../components/NavBar";
 import ArtworkTile from "../../../../components/ArtworkTile";
 import Link from "next/link";
 import Router from "next/router";
+import DeleteButton from "../../../../components/DeleteButton";
 
 const getCollectionById = (
   id: Collection["id"]
@@ -47,7 +48,34 @@ const CollectionIdPage = async (props: CollectionInformation) => {
               where: { id: artwork.id },
               include: { collection: true },
             });
-            return <ArtworkTile key={artworkData?.id} artwork={artworkData} />;
+            // return <ArtworkTile key={artworkData?.id} artwork={artworkData} />;
+            return (
+              <div
+                key={artwork.id}
+                className="border-2 rounded border-blue-500 flex flex-col items-center w-100 p-4 shadow-lg justify-between"
+              >
+                <div className="text-center justify-start">
+                  <h1 className="font-bold">Artwork Title</h1>
+                  <h1>{artwork.title}</h1>
+                </div>
+                <div className="">
+                  <Image
+                    src={artwork.image}
+                    alt="image"
+                    width="400"
+                    height="50"
+                    className="rounded"
+                  />
+                </div>
+                <div className="flex flex-col justify-end">
+                  <a href={`/artwork/${artwork.id}`} className="underline">
+                    Click for more information
+                  </a>
+                  <DeleteButton artwork={artwork} />
+                  {/* <button className="underline">Delete artwork</button> */}
+                </div>
+              </div>
+            );
           })}
         </div>
         <div className="flex justify-center">

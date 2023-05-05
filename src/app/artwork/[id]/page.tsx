@@ -9,6 +9,7 @@ import Image from "next/image";
 import NavBar from "../../../../components/NavBar";
 import Link from "next/link";
 import DeleteButton from "../../../../components/DeleteButton";
+import DeleteButtonCollectionRoute from "../../../../components/DeleteButtonCollectionRoute";
 
 const getArtworkByID = (id: Artwork["id"]): Promise<Artwork | null> => {
   return prisma.artwork.findUnique({
@@ -45,7 +46,7 @@ const ArtworkIdPage = async (props: ArtworkInformation) => {
             Artwork Title: {artwork.title}
           </p>
           <button>Edit Artwork</button>
-          <DeleteButton artwork={artwork} />
+          {/* <DeleteButtonCollectionRoute artwork={artwork} /> */}
         </div>
         <div className="flex flex-col justify-center items-center">
           <Image
@@ -107,7 +108,7 @@ const ArtworkIdPage = async (props: ArtworkInformation) => {
         </p>
         <Link href={collectionPage}>Go back to Collection Page</Link>
         <button>Edit Artwork</button>
-        <DeleteButton artwork={artwork} />
+        {/* <DeleteButtonCollectionRoute artwork={artwork} /> */}
       </div>
       <div className="flex flex-col justify-center items-center">
         <Image

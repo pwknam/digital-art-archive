@@ -3,17 +3,10 @@ import Image from "next/image";
 import Link from "next/link";
 
 export default function ArtworkTile({ artwork }) {
-  function handleClick() {
-    console.log(`My artwork id is ${artwork.id}`);
-  }
-
   const artPageLink = `/artwork/${artwork.id}`;
 
   return (
-    <div
-      onClick={handleClick}
-      className="border-2 rounded border-blue-500 flex flex-col items-center w-100 p-4 shadow-lg justify-between"
-    >
+    <div className="border-2 rounded border-blue-500 flex flex-col items-center w-100 p-4 shadow-lg justify-between">
       <div className="text-center justify-start">
         <h1 className="font-bold">Artwork Title</h1>
         <h1>{artwork.title}</h1>
