@@ -2,6 +2,8 @@
 import { signIn } from "next-auth/react";
 import Link from "next/link";
 import { useState } from "react";
+import newLogo from "public/new_logo.png";
+import Image from "next/image";
 
 export default function Home() {
   const [username, setUsername] = useState("");
@@ -19,38 +21,50 @@ export default function Home() {
 
   return (
     <div className="flex justify-between h-screen">
-      <div className="w-1/3 flex justify-center items-center flex-col">
-        <h1 className="font-bold text-4xl mb-4">Digital Art Archive</h1>
-        <h1>Description of the software</h1>
+      <div className="w-1/3 flex justify-center items-center flex-col text-center">
+        <h1 className="font-bold text-4xl mb-4">Art Archive</h1>
+        <Image
+          src={newLogo}
+          alt="logo image"
+          width="175"
+          height="100"
+          className="mb-4"
+        />
+        <h1 className="text-xl p-2">
+          Digitally store and track your artworks as your artistic career
+          unfolds
+        </h1>
       </div>
       <div className="w-2/3 bg-white flex justify-center items-center">
         <div>
-          <h1 className="font-bold text-4xl mb-3">Create Account</h1>
+          <h1 className="font-bold text-4xl mb-7">Create Account</h1>
           <form className="flex flex-col" onSubmit={handleFormSubmit}>
-            <label>Email</label>
+            <label className="mb-1 font-bold text-orange-400">Email</label>
             <input
-              className="bg-gray-100 rounded mb-4 h-8"
+              className="bg-gray-200 rounded mb-4 h-8"
               type="text"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
             ></input>
 
-            <label>Password</label>
+            <label className="mb-1 font-bold text-orange-400">Password</label>
             <input
-              className="bg-gray-100 rounded mb-4 h-8"
+              className="bg-gray-200 rounded mb-4 h-8"
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             ></input>
 
-            <label>Confirm Password</label>
+            <label className="mb-1 font-bold text-orange-400">
+              Confirm Password
+            </label>
             <input
-              className="bg-gray-100 rounded mb-4 h-8"
+              className="bg-gray-200 rounded mb-4 h-8"
               type="password"
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
             ></input>
-            <button className="rounded bg-orange-400 text-white mb-4 h-8">
+            <button className="font-bold rounded bg-orange-400 text-white mb-4 h-8">
               Submit
             </button>
           </form>

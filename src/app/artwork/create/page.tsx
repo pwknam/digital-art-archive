@@ -30,7 +30,7 @@ export default async function ArtworkCreate() {
       <NavBar />
       <div className="flex flex-col h-screen justify-center items-center">
         <div className="w-1/2 h-3/4">
-          <h1 className="font-bold text-3xl mb-4">Add New Artwork</h1>
+          <h1 className="font-bold text-3xl mb-7">Add New Artwork</h1>
           <ArtworkForm handleFormSubmit={handleFormSubmit} />
         </div>
       </div>

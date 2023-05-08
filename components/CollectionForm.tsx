@@ -29,22 +29,22 @@ export function CollectionForm({ handleFormSubmit }: CollectionFormProps) {
         onSubmit={handleFormInputs}
         style={{ display: "flex", flexDirection: "column" }}
       >
-        <label>Title</label>
+        <label className="mb-1 font-bold text-orange-400">Title</label>
         <input
           type="text"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
-          className="bg-gray-100 rounded mb-4 h-8"
+          className="bg-gray-50 rounded mb-4 h-8"
         ></input>
-        <label>Description</label>
+        <label className="mb-1 font-bold text-orange-400">Description</label>
         <input
           type="text"
           value={description}
           onChange={(e) => setDescription(e.target.value)}
-          className="bg-gray-100 rounded mb-4 h-8"
+          className="bg-gray-50 rounded mb-4 h-8"
         ></input>
 
-        <button className="rounded bg-orange-400 text-white mb-4 h-8">
+        <button className="font-bold rounded bg-orange-400 text-white mb-4 h-8">
           Submit
         </button>
       </form>

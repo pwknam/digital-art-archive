@@ -44,71 +44,73 @@ export function ArtworkForm({ handleFormSubmit }: ArtworkFormProps) {
         onSubmit={handleFormInputs}
         style={{ display: "flex", flexDirection: "column" }}
       >
-        <label>Title</label>
+        <label className="mb-1 font-bold text-orange-400">Title</label>
         <input
           type="text"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
-          className="bg-gray-100 rounded mb-4 h-8"
+          className="bg-gray-50 rounded mb-4 h-8"
         ></input>
-        <label>Description</label>
+        <label className="mb-1 font-bold text-orange-400">Description</label>
         <input
           type="text"
           value={description}
           onChange={(e) => setDescription(e.target.value)}
-          className="bg-gray-100 rounded mb-4 h-20"
+          className="bg-gray-50 rounded mb-4 h-8"
         ></input>
-        <label>Image</label>
+        <label className="mb-1 font-bold text-orange-400">Image</label>
         <input
           type="text"
           value={image}
           onChange={(e) => setImage(e.target.value)}
-          className="bg-gray-100 rounded mb-4 h-8"
+          className="bg-gray-50 rounded mb-4 h-8"
         ></input>
-        <label>Type</label>
+        <label className="mb-1 font-bold text-orange-400">Type</label>
         <input
           type="text"
           value={type}
           onChange={(e) => setType(e.target.value)}
-          className="bg-gray-100 rounded mb-4 h-8"
+          className="bg-gray-50 rounded mb-4 h-8"
         ></input>
-        <label>Medium</label>
+        <label className="mb-1 font-bold text-orange-400">Medium</label>
         <input
           type="text"
           value={medium}
           onChange={(e) => setMedium(e.target.value)}
-          className="bg-gray-100 rounded mb-4 h-8"
+          className="bg-gray-50 rounded mb-4 h-8"
         ></input>
-        <label>Size</label>
+        <label className="mb-1 font-bold text-orange-400">Size</label>
         <input
           type="text"
           value={size}
           onChange={(e) => setSize(e.target.value)}
-          className="bg-gray-100 rounded mb-4 h-8"
+          className="bg-gray-50 rounded mb-4 h-8"
         ></input>
-        <label>Pieces</label>
+        <label className="mb-1 font-bold text-orange-400">Pieces</label>
         <input
           type="number"
           value={pieces}
           onChange={(e) => setPieces(e.target.valueAsNumber)}
-          className="bg-gray-100 rounded mb-4 h-8"
+          className="bg-gray-50 rounded mb-4 h-8"
         ></input>
-        <label>Price</label>
+        <label className="mb-1 font-bold text-orange-400">Price</label>
         <input
           type="number"
           value={price}
           onChange={(e) => setPrice(e.target.valueAsNumber)}
-          className="bg-gray-100 rounded mb-4 h-8"
+          className="bg-gray-50 rounded mb-4 h-8"
         ></input>
-        <label>Date - CreatedAt</label>
+        <label className="mb-1 font-bold text-orange-400">
+          Date - CreatedAt
+        </label>
         <input
           type="date"
           value={createdAt}
           onChange={(e) => setCreatedAt(e.target.value)}
-          className="bg-gray-100 rounded mb-4 h-8"
+          className="bg-gray-50 rounded mb-4 h-8"
         ></input>
 
-        <button className="rounded bg-orange-400 text-white mb-4 h-8">
+        <button className="font-bold rounded bg-orange-400 text-white mb-4 h-8">
           Submit
         </button>
       </form>

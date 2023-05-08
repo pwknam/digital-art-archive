@@ -14,8 +14,8 @@ export default function DeleteButton({ collection }) {
     router.refresh();
   }
   return (
-    <button onClick={handleDelete} className="underline">
-      Delete {collection.title}
+    <button onClick={handleDelete} className="underline ">
+      Delete collection
     </button>
   );
 }
