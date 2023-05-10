@@ -1,11 +1,13 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   ArtworkForm,
   ArtworkFormProps,
 } from "../../../../components/ArtworkForm";
 import NavBar from "../../../../components/NavBar";
 import { useRouter } from "next/navigation";
+import { set } from "zod";
+import { truncate } from "fs/promises";
 
 export default async function ArtworkCreate() {
   const router = useRouter();
@@ -19,7 +21,9 @@ export default async function ArtworkCreate() {
     });
 
     if (inputData.status != 200) {
-      console.log(await inputData.json());
+      const errorData = await inputData.json();
+      const errors = errorData.errors;
+      console.log(errors);
     } else {
       router.push("/artwork");
     }

@@ -12,7 +12,7 @@ export default function CollectionCreate() {
   console.log(router);
 
   const handleFormSubmit: CollectionFormProps["handleFormSubmit"] = (data) => {
-    fetch("/api/collection?method=POST", {
+    fetch("/api/collection", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),
