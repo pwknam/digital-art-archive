@@ -14,7 +14,7 @@ export default function NewEntryPage() {
           <Image
             src={collection_logo}
             alt="collection logo"
-            width="200"
+            width="300"
             height="150"
             className="mb-4"
           />
@@ -28,7 +28,7 @@ export default function NewEntryPage() {
           <Image
             src={artwork_logo}
             alt="collection logo"
-            width="200"
+            width="300"
             height="150"
             className="mb-4"
           />

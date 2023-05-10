@@ -79,7 +79,12 @@ const CollectionIdPage = async (props: CollectionInformation) => {
           })}
         </div>
         <div className="flex justify-center">
-          <Link href={addArtworksPage}>Add More Artworks</Link>
+          <Link
+            href={addArtworksPage}
+            className="font-bold text-orange-400 text-2xl"
+          >
+            Add More Artworks
+          </Link>
         </div>
       </div>
     </>

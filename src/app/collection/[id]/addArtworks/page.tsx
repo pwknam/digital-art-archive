@@ -30,6 +30,7 @@ export default async function AddArtworks(props) {
   const id = props.params.id;
 
   const selectedCollection = await getSelectedCollection(Number(id));
+  const collection_link = `/collection/${id}`;
 
   return (
     <>
@@ -55,7 +56,10 @@ export default async function AddArtworks(props) {
         })}
       </div>
       <div className="flex justify-center">
-        <Link className="font-bold text-2xl" href="/collection">
+        <Link
+          className="font-bold text-2xl text-orange-400"
+          href={collection_link}
+        >
           Back to Collection
         </Link>
       </div>

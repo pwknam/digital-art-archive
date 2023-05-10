@@ -21,21 +21,21 @@ export default function Home() {
 
   return (
     <div className="flex justify-between h-screen">
-      <div className="w-1/3 flex justify-center items-center flex-col text-center">
-        <h1 className="font-bold text-4xl mb-4">Art Archive</h1>
+      <div className="w-1/2 flex justify-center items-center flex-col text-center">
+        <h1 className="font-bold text-7xl mb-8">My Art Archive</h1>
         <Image
           src={newLogo}
           alt="logo image"
-          width="175"
+          width="250"
           height="100"
-          className="mb-4"
+          className="mb-8"
         />
-        <h1 className="text-xl p-2">
+        <h1 className="text-2xl p-4">
           Digitally store and track your artworks as your artistic career
           unfolds
         </h1>
       </div>
-      <div className="w-2/3 bg-white flex justify-center items-center">
+      <div className="w-1/2 bg-white flex justify-center items-center">
         <div>
           <h1 className="font-bold text-4xl mb-7">Create Account</h1>
           <form className="flex flex-col" onSubmit={handleFormSubmit}>
