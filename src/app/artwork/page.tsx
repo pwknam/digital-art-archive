@@ -53,8 +53,7 @@ export default async function ArtworkCRUD() {
                 className="border-2 rounded border-blue-500 flex flex-col items-center w-100 p-4 shadow-lg justify-between"
               >
                 <div className="text-center justify-start">
-                  <h1 className="font-bold">Artwork Title</h1>
-                  <h1>{artwork.title}</h1>
+                  <h1 className="text-xl font-bold mb-2">{artwork.title}</h1>
                 </div>
                 <div>
                   <Image
@@ -62,11 +61,11 @@ export default async function ArtworkCRUD() {
                     alt="image"
                     width="400"
                     height="50"
-                    className="rounded"
+                    className="rounded mb-2"
                   />
                 </div>
                 <div className="flex flex-col justify-end">
-                  <a href={`/artwork/${artwork.id}`} className="underline">
+                  <a href={`/artwork/${artwork.id}`} className="underline mb-1">
                     Click for more information
                   </a>
                   <DeleteButton artwork={artwork} />
