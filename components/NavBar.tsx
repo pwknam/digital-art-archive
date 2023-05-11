@@ -14,7 +14,7 @@ export default function NavBar() {
   }
 
   return (
-    <div className=" w-full h-20 shawdow-xl z-[100] mb-4">
+    <div className=" w-full h-20 shawdow-xl z-[100] mb-4 bg-grey-400">
       <div className="flex justify-between items-center w-full h-full">
         <a href="/">
           <Image src={logo} alt="logo" width="75" height="50" />

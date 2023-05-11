@@ -1,9 +1,11 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 export default function AddArtworkTile({ artwork, collectionId }) {
+  const router = useRouter();
   const [added, setAdded] = useState(false);
 
   function handleClick() {
@@ -17,6 +19,7 @@ export default function AddArtworkTile({ artwork, collectionId }) {
     });
 
     setAdded(true);
+    router.refresh();
   }
 
   return (

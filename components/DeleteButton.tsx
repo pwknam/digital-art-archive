@@ -14,7 +14,7 @@ export default function DeleteButton({ artwork }) {
   }
   return (
     <button onClick={handleDelete} className="underline">
-      Delete {artwork.title}
+      Delete Artwork
     </button>
   );
 }
