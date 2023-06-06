@@ -5,19 +5,14 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
     <img src="images/logo.png" alt="Logo" width="80" height="80">
   </a> -->
 
-<h3 align="center">Bookly</h3>
+<h3 align="center">Art Archive</h3>
 
   <p align="center">
-    A CRUD app that allows users to track books read and information in an Apple Music / Spotify UI design.
+    A CRUD app that allows artists to digitally store and organize their body of artworks.
     <br />
-    <a href="https://github.com/danjkim21/bookly-app"><strong>Explore the docs »</strong></a>
+    <a href="https://youtube.com"><strong>Product Demo Video »</strong></a>
     <br />
     <br />
-    <a href="https://bookly.cyclic.app/">View Demo</a>
-    ·
-    <a href="https://github.com/danjkim21/bookly-app/issues">Report Bug</a>
-    ·
-    <a href="https://github.com/danjkim21/bookly-app/issues">Request Feature</a>
   </p>
 </div>
 
