@@ -16,16 +16,45 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
   </p>
 </div>
 
+## About The Project
+
+<br />
+
+<p align="center">
+  <img src="public/Screenshot 2023-06-06 at 11.32.35 AM.png" width="50%" alt="space app recording"/>
+</p>
+
+### Why I developed the product?
+
+Cloud storage products are not user friendly for artists because they are designed to manage (CRUD) files but not images and videos of artworks and their details (metadata). The “art tech” industry lacks innovative products for artists to digitally manage, store, and showcase their works of physical art.
+
+I created Art Archive for artists to upload images of their artwork, organize artworks by their respective series or collection, and keep track of important details and history of artworks.
+
+### How It's Made
+
+**Technologies Used:**
+
+- Next.js 13
+- TypeScript
+- Prisma ORM
+- NextAuth.js
+
+### Features of the Product
+
+d
+
 ## Getting Started
 
-First, run the development server:
+**Installation**
+
+```
+npm install
+```
+
+**Usage**
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
