@@ -21,7 +21,7 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 <br />
 
 <p align="center">
-  <img src="public/Screenshot 2023-06-06 at 11.32.35 AM.png" width="50%" alt="space app recording"/>
+  <img src="public/Screenshot 2023-06-06 at 11.32.35 AM.png" width="75%" alt="space app recording"/>
 </p>
 
 ### Why I developed the product?
