@@ -45,8 +45,6 @@ export default async function ArtworkCRUD() {
 
         <div className="grid grid-cols-4 gap-4 mb-10">
           {artworks.map((artwork) => {
-            // return <h1 key={artwork.id}>{artwork.title}</h1>;
-            // return <ArtworkTile key={artwork.id} artwork={artwork} />;
             return (
               <div
                 key={artwork.id}

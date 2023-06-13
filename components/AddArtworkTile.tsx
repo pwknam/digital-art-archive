@@ -4,7 +4,13 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
-export default function AddArtworkTile({ artwork, collectionId }) {
+export default function AddArtworkTile({
+  artwork,
+  collectionId,
+}: {
+  artwork: any;
+  collectionId: any;
+}) {
   const router = useRouter();
   const [added, setAdded] = useState(false);
 
