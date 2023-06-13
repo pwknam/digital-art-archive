@@ -2,7 +2,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-export default function ArtworkTile({ artwork }) {
+export default function ArtworkTile({ artwork }: { artwork: any }) {
   const artPageLink = `/artwork/${artwork.id}`;
 
   return (

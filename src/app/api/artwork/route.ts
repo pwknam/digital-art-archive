@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { prisma } from "../../../../lib/prisma";
-import { getServerSession } from "next-auth";
+import { User, getServerSession } from "next-auth";
 import { authRouteHandler } from "../auth/[...nextauth]/route";
 
 import { NextApiRequest, NextApiResponse } from "next";
@@ -8,8 +8,8 @@ import { z } from "zod";
 
 export async function POST(request: Request) {
   const session = await getServerSession(authRouteHandler);
-  const userId = parseInt(session?.user.id);
-
+  const user = session?.user as User | undefined;
+  const userId = user?.id ? parseInt(user.id) : null;
   const res = await request.json();
 
   const artwork = artworkValidator.safeParse(res);

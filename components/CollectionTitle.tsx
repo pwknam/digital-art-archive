@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import collectionImage from "public/collection.png";
 
-export default function CollectionTile({ collection }) {
+export default function CollectionTile({ collection }: { collection: any }) {
   const collectionPageLink = `/collection/${collection.id}`;
 
   return (

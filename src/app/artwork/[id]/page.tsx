@@ -9,7 +9,6 @@ import Image from "next/image";
 import NavBar from "../../../../components/NavBar";
 import Link from "next/link";
 import DeleteButton from "../../../../components/DeleteButton";
-import DeleteButtonCollectionRoute from "../../../../components/DeleteButtonCollectionRoute";
 
 const getArtworkByID = (id: Artwork["id"]): Promise<Artwork | null> => {
   return prisma.artwork.findUnique({

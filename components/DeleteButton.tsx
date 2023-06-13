@@ -2,7 +2,7 @@
 import { useRouter } from "next/navigation";
 import { FC } from "react";
 
-export default function DeleteButton({ artwork }) {
+export default function DeleteButton({ artwork }: { artwork: any }) {
   const router = useRouter();
 
   async function handleDelete() {

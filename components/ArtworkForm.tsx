@@ -24,7 +24,7 @@ export function ArtworkForm({ handleFormSubmit }: ArtworkFormProps) {
   const [price, setPrice] = useState(0);
   const [createdAt, setCreatedAt] = useState("");
 
-  function handleFormInputs(e) {
+  function handleFormInputs(e: { preventDefault: () => void }) {
     e.preventDefault();
     handleFormSubmit({
       title,
