@@ -4,13 +4,14 @@ import Link from "next/link";
 import { useState } from "react";
 import newLogo from "public/new_logo.png";
 import Image from "next/image";
+import { CreateAccount } from "../../components/CreateAccount";
 
 export default function Home() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
-  function handleFormSubmit(e) {
+  function handleFormSubmit(e: { preventDefault: () => void }) {
     e.preventDefault();
     signIn("credentials", {
       username,
@@ -38,36 +39,16 @@ export default function Home() {
       <div className="w-1/2 bg-white flex justify-center items-center">
         <div>
           <h1 className="font-bold text-4xl mb-7">Create Account</h1>
-          <form className="flex flex-col" onSubmit={handleFormSubmit}>
-            <label className="mb-1 font-bold text-orange-400">Email</label>
-            <input
-              className="bg-gray-200 rounded mb-4 h-8"
-              type="text"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-            ></input>
 
-            <label className="mb-1 font-bold text-orange-400">Password</label>
-            <input
-              className="bg-gray-200 rounded mb-4 h-8"
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            ></input>
-
-            <label className="mb-1 font-bold text-orange-400">
-              Confirm Password
-            </label>
-            <input
-              className="bg-gray-200 rounded mb-4 h-8"
-              type="password"
-              value={confirmPassword}
-              onChange={(e) => setConfirmPassword(e.target.value)}
-            ></input>
-            <button className="font-bold rounded bg-orange-400 text-white mb-4 h-8">
-              Submit
-            </button>
-          </form>
+          <CreateAccount
+            handleFormSubmit={handleFormSubmit}
+            username={username}
+            password={password}
+            confirmPassword={confirmPassword}
+            setUsername={setUsername}
+            setPassword={setPassword}
+            setConfirmPassword={setConfirmPassword}
+          />
 
           <div className="flex">
             <p className="mr-1">If you already have an account, continue to </p>

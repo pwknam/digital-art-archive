@@ -1,31 +1,34 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
+import DeleteButton from "./DeleteButton";
 
-export default function ArtworkTile({ artwork }: { artwork: any }) {
+export const ArtworkTile = ({ artwork }: { artwork: any }) => {
   const artPageLink = `/artwork/${artwork.id}`;
 
   return (
-    <div className="border-2 rounded border-blue-500 flex flex-col items-center w-100 p-4 shadow-lg justify-between">
+    <div
+      key={artwork.id}
+      className="border-2 rounded border-blue-500 flex flex-col items-center w-100 p-4 shadow-lg justify-between"
+    >
       <div className="text-center justify-start">
-        <h1 className="font-bold">Artwork Title</h1>
-        <h1>{artwork.title}</h1>
+        <h1 className="text-xl font-bold mb-2">{artwork.title}</h1>
       </div>
-      <div className="">
+      <div>
         <Image
           src={artwork.image}
           alt="image"
           width="400"
           height="50"
-          className="rounded"
+          className="rounded mb-2"
         />
       </div>
       <div className="flex flex-col justify-end">
-        <Link href={artPageLink} className="underline">
+        <a href={`/artwork/${artwork.id}`} className="underline mb-1">
           Click for more information
-        </Link>
-        {/* <button className="underline">Delete artwork</button> */}
+        </a>
+        <DeleteButton artwork={artwork} />
       </div>
     </div>
   );
-}
+};
