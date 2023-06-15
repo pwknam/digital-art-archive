@@ -3,6 +3,7 @@ import { Artwork } from "@prisma/client";
 // import { useRouter } from "next/navigation";
 
 import { DOMAttributes, useState } from "react";
+import { Button } from "./Button";
 
 // export interface ArtworkFormProps {
 //   handleFormSubmit: (Artwork: Partial<Artwork>) => void;
@@ -111,9 +112,7 @@ export function ArtworkForm({ handleFormSubmit }: ArtworkFormProps) {
           className="bg-gray-50 rounded mb-4 h-8"
         ></input>
 
-        <button className="font-bold rounded bg-orange-400 text-white mb-4 h-8">
-          Submit
-        </button>
+        <Button type="form">Submit</Button>
       </form>
     </>
   );

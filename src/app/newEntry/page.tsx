@@ -3,6 +3,7 @@ import NavBar from "../../../components/NavBar";
 import Image from "next/image";
 import collection_logo from "public/collection_logo.png";
 import artwork_logo from "public/artwork_logo.png";
+import { Button } from "../../../components/Button";
 
 export default function NewEntryPage() {
   return (
@@ -18,11 +19,8 @@ export default function NewEntryPage() {
             height="150"
             className="mb-4"
           />
-          <div className="border-2 rounded border-blue-500 flex flex-col items-center w-100 p-4 shadow-lg justify-between">
-            <Link href="/collection/create" className="font-bold ">
-              Add New Collection
-            </Link>
-          </div>
+
+          <Button href="/collection/create">Add New Collection</Button>
         </div>
         <div className="w-1/2 flex flex-col justify-center items-center">
           <Image
@@ -32,11 +30,7 @@ export default function NewEntryPage() {
             height="150"
             className="mb-4"
           />
-          <div className="border-2 rounded border-blue-500 flex flex-col items-center w-100 p-4 shadow-lg justify-between">
-            <Link href="/artwork/create" className="font-bold">
-              Add New Artwork
-            </Link>
-          </div>
+          <Button href="/artwork/create">Add New Artwork</Button>
         </div>
       </div>
     </>

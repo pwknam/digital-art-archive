@@ -1,3 +1,5 @@
+import { Dispatch, SetStateAction } from "react";
+
 export const CreateAccount = ({
   handleFormSubmit,
   username,
@@ -11,7 +13,8 @@ export const CreateAccount = ({
   username: string;
   password: string;
   confirmPassword: string;
-  setUsername: any;
+  setUsername: Dispatch<SetStateAction<string>>;
+
   setPassword: any;
   setConfirmPassword: any;
 }) => {

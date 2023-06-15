@@ -8,9 +8,7 @@ export const ArtworkDetailPage = ({ artwork }: { artwork: any }) => {
     <>
       <div className="text-center mb-4 flex flex-col">
         <p className="font-bold text-5xl mb-4">{artwork.title}</p>
-
         {/* conditionally render this link if the user is an admin */}
-
         {artwork.collection && (
           <Link href={collectionPage} className="text-orange-400 text-xl">
             Go back to Collection Page
@@ -37,12 +35,10 @@ export const ArtworkDetailPage = ({ artwork }: { artwork: any }) => {
           <p className="mr-1 font-bold">Size:</p>
           <p>{artwork.size}</p>
         </div>
-
         <div className="flex mb-2">
           <p className="mr-1 font-bold">Type:</p>
           <p>{artwork.type}</p>
         </div>
-
         <div className="flex mb-2">
           <p className="mr-1 font-bold">Medium:</p>
           <p>{artwork.medium}</p>

@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import logo from "public/tools_logo.png";
 import { signIn, signOut } from "next-auth/react";
+import { NavBarItem } from "./NavBarItem";
 
 export default function NavBar() {
   function handleSignOut() {
@@ -13,6 +14,13 @@ export default function NavBar() {
     console.log("Signing out");
   }
 
+  const items = [
+    { href: "/", label: "Home" },
+    { href: "/newEntry", label: "New Entry" },
+    { href: "/collection", label: "View All Collections" },
+    { href: "/artwork", label: "View All Artworks" },
+  ];
+
   return (
     <div className=" w-full h-20 shawdow-xl z-[100] mb-4 bg-grey-400">
       <div className="flex justify-between items-center w-full h-full">
@@ -21,22 +29,11 @@ export default function NavBar() {
         </a>
         <div>
           <ul className="hidden md:flex">
-            <Link href="/">
-              <li className="ml-10 text-md hover:border-b">Home</li>
-            </Link>
-            <Link href="/newEntry">
-              <li className="ml-10 text-md hover:border-b">New Entry</li>
-            </Link>
-            <Link href="/collection">
-              <li className="ml-10 text-md hover:border-b">
-                View All Collections
-              </li>
-            </Link>
-            <Link href="/artwork">
-              <li className="ml-10 text-md hover:border-b">
-                View All Artworks
-              </li>
-            </Link>
+            {items.map((item) => (
+              <NavBarItem key={item.label} href={item.href}>
+                {item.label}
+              </NavBarItem>
+            ))}
             <button
               onClick={handleSignOut}
               className="ml-10 text-md hover: border-b text-orange-400"
