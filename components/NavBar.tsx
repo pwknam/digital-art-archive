@@ -4,8 +4,9 @@ import Link from "next/link";
 import Image from "next/image";
 import logo from "public/tools_logo.png";
 import { signIn, signOut } from "next-auth/react";
+import { FC } from "react";
 
-export default function NavBar() {
+const NavBar: FC = () => {
   function handleSignOut() {
     signOut({
       callbackUrl: window.location.origin,
@@ -48,4 +49,6 @@ export default function NavBar() {
       </div>
     </div>
   );
-}
+};
+
+export default NavBar;

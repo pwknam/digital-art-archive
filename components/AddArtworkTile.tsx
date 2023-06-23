@@ -3,19 +3,19 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { FC } from "react";
+import { Artwork } from "@prisma/client";
+import { Collection } from "@prisma/client";
 
-export default function AddArtworkTile({
-  artwork,
-  collectionId,
-}: {
-  artwork: any;
-  collectionId: any;
-}) {
+export interface AddArtworkTileProps {
+  artwork: Artwork;
+  collectionId: Collection;
+}
+const AddArtworkTile: FC<AddArtworkTileProps> = ({ artwork, collectionId }) => {
   const router = useRouter();
   const [added, setAdded] = useState(false);
 
   function handleClick() {
-    //this function will handle the API post request to add the artwork to the collection
     fetch("/api/collection/addArtwork", {
       method: "PATCH",
       body: JSON.stringify({
@@ -58,4 +58,5 @@ export default function AddArtworkTile({
       )}
     </div>
   );
-}
+};
+export default AddArtworkTile;

@@ -18,7 +18,7 @@ export default function Login() {
     signIn("credentials", {
       username,
       password,
-      callbackUrl: window.location.origin + "/newEntry",
+      callbackUrl: window.location.origin + "/new-entry",
     });
   }
 

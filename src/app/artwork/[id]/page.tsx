@@ -16,7 +16,7 @@ const getArtworkByID = (id: Artwork["id"]): Promise<Artwork | null> => {
     where: { id: Number(id) },
     include: {
       collection: true,
-      galleries: true, // include galleries
+      galleries: true,
     },
   });
 };

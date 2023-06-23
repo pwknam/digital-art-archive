@@ -2,9 +2,15 @@
 import Image from "next/image";
 import Link from "next/link";
 import collectionImage from "public/collection.png";
+import { Collection } from "@prisma/client";
+import { FC } from "react";
 import DeleteCollectionButton from "./DeleteCollectionButton";
 
-export default function CollectionTile({ collection }: { collection: any }) {
+interface CollectionTileProps {
+  collection: Collection;
+}
+
+const CollectionTile: FC<CollectionTileProps> = ({ collection }) => {
   const collectionPageLink = `/collection/${collection.id}`;
 
   return (
@@ -33,4 +39,6 @@ export default function CollectionTile({ collection }: { collection: any }) {
       </div>
     </div>
   );
-}
+};
+
+export default CollectionTile;

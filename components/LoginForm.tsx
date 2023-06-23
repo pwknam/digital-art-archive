@@ -1,17 +1,20 @@
 import Link from "next/link";
+import { FC } from "react";
 
-export const LoginForm = ({
+export interface LoginFormProps {
+  handleSignIn: (value: any) => void;
+  username: string;
+  password: string;
+  setUsername: (value: string) => void;
+  setPassword: (value: string) => void;
+}
+
+export const LoginForm: FC<LoginFormProps> = ({
   handleSignIn,
   username,
-  setUsername,
   password,
+  setUsername,
   setPassword,
-}: {
-  handleSignIn: any;
-  username: string;
-  setUsername: any;
-  password: string;
-  setPassword: any;
 }) => {
   return (
     <form

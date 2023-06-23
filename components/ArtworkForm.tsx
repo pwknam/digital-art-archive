@@ -1,19 +1,13 @@
 "use client";
 import { Artwork } from "@prisma/client";
-// import { useRouter } from "next/navigation";
-
-import { DOMAttributes, useState } from "react";
-
-// export interface ArtworkFormProps {
-//   handleFormSubmit: (Artwork: Partial<Artwork>) => void;
-// }
+import { DOMAttributes, FC, useState } from "react";
 
 export interface ArtworkFormProps {
   artwork?: Artwork;
   handleFormSubmit: (artwork: Partial<Artwork>) => void;
 }
 
-export function ArtworkForm({ handleFormSubmit }: ArtworkFormProps) {
+export const ArtworkForm: FC<ArtworkFormProps> = ({ handleFormSubmit }) => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [image, setImage] = useState("");
@@ -117,4 +111,4 @@ export function ArtworkForm({ handleFormSubmit }: ArtworkFormProps) {
       </form>
     </>
   );
-}
+};

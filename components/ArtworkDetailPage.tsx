@@ -2,14 +2,18 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArtworkEditForm } from "./ArtworkEditForm";
 import { Artwork } from "@prisma/client";
-export const ArtworkDetailPage = ({ artwork }: { artwork: any }) => {
+import { FC } from "react";
+
+interface ArtworkDetailPageProps {
+  artwork: Artwork;
+}
+
+export const ArtworkDetailPage: FC<ArtworkDetailPageProps> = ({ artwork }) => {
   const collectionPage = `/collection/${artwork?.collection?.id}`;
   return (
     <>
       <div className="text-center mb-4 flex flex-col">
         <p className="font-bold text-5xl mb-4">{artwork.title}</p>
-
-        {/* conditionally render this link if the user is an admin */}
 
         {artwork.collection && (
           <Link href={collectionPage} className="text-orange-400 text-xl">

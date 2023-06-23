@@ -2,8 +2,13 @@
 import Image from "next/image";
 import Link from "next/link";
 import DeleteButton from "./DeleteButton";
+import { FC } from "react";
+import { Artwork } from "@prisma/client";
 
-export const ArtworkTile = ({ artwork }: { artwork: any }) => {
+interface ArtworkTileProps {
+  artwork: Artwork;
+}
+export const ArtworkTile: FC<ArtworkTileProps> = ({ artwork }) => {
   const artPageLink = `/artwork/${artwork.id}`;
 
   return (

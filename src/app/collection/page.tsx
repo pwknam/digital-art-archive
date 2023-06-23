@@ -4,9 +4,8 @@ import { prisma } from "../../../lib/prisma";
 import Link from "next/link";
 import { authRouteHandler } from "../api/auth/[...nextauth]/route";
 import collectionImage from "public/collection_logo.png";
-import DeleteCollectionButton from "../../../components/DeleteCollectionButton";
 import Image from "next/image";
-import CollectionTile from "../../../components/CollectionTitle";
+import CollectionTile from "../../../components/CollectionTile";
 
 async function getCollections(userId) {
   const data = prisma.collection.findMany({

@@ -1,6 +1,6 @@
 "use client";
 import { Collection } from "@prisma/client";
-import { DOMAttributes, useState } from "react";
+import { DOMAttributes, FC, useState } from "react";
 import { Artwork } from "@prisma/client";
 
 export interface ArtworkFormProps {
@@ -12,7 +12,9 @@ export interface CollectionFormProps {
   handleFormSubmit: (collection: Partial<Collection>) => void;
 }
 
-export function CollectionForm({ handleFormSubmit }: CollectionFormProps) {
+export const CollectionForm: FC<CollectionFormProps> = ({
+  handleFormSubmit,
+}) => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
 
@@ -51,4 +53,4 @@ export function CollectionForm({ handleFormSubmit }: CollectionFormProps) {
       </form>
     </>
   );
-}
+};

@@ -1,4 +1,16 @@
-export const CreateAccount = ({
+import { FC } from "react";
+
+export interface CreateAccountProps {
+  handleFormSubmit: (value: any) => void;
+  username: string;
+  password: string;
+  confirmPassword: string;
+  setUsername: (value: string) => void;
+  setPassword: (value: string) => void;
+  setConfirmPassword: (value: string) => void;
+}
+
+export const CreateAccount: FC<CreateAccountProps> = ({
   handleFormSubmit,
   username,
   password,
@@ -6,14 +18,6 @@ export const CreateAccount = ({
   setUsername,
   setPassword,
   setConfirmPassword,
-}: {
-  handleFormSubmit: any;
-  username: string;
-  password: string;
-  confirmPassword: string;
-  setUsername: any;
-  setPassword: any;
-  setConfirmPassword: any;
 }) => {
   return (
     <form className="flex flex-col" onSubmit={handleFormSubmit}>

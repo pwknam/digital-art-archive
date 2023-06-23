@@ -1,8 +1,13 @@
 "use client";
+import { Artwork } from "@prisma/client";
 import { useRouter } from "next/navigation";
 import { FC } from "react";
 
-export default function DeleteButton({ artwork }: { artwork: any }) {
+interface DeleteButtonProps {
+  artwork: Artwork;
+}
+
+const DeleteButton: FC<DeleteButtonProps> = ({ artwork }) => {
   const router = useRouter();
 
   async function handleDelete() {
@@ -17,4 +22,5 @@ export default function DeleteButton({ artwork }: { artwork: any }) {
       Delete Artwork
     </button>
   );
-}
+};
+export default DeleteButton;
