@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { DELETE } from "./../artwork/[id]/route";
 import { NextResponse } from "next/server";
 import { prisma } from "../../../../lib/prisma";

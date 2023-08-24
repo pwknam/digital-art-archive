@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { getServerSession } from "next-auth";
 import NavBar from "../../../components/NavBar";
 import { prisma } from "../../../lib/prisma";

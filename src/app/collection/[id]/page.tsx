@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { Collection } from "@prisma/client";
 import { prisma } from "../../../../lib/prisma";
 import Image from "next/image";

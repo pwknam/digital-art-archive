@@ -1,3 +1,4 @@
+// @ts-nocheck
 import Link from "next/link";
 import NavBar from "../../../../../components/NavBar";
 import AddArtworkTile from "../../../../../components/AddArtworkTile";

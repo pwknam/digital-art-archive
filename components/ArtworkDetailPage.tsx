@@ -1,21 +1,28 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArtworkEditForm } from "./ArtworkEditForm";
-import { Artwork } from "@prisma/client";
+import { Artwork, Collection } from "@prisma/client";
 import { FC } from "react";
+import { prisma } from "../lib/prisma";
+import { number } from "zod";
 
 interface ArtworkDetailPageProps {
   artwork: Artwork;
+  collection: Collection | null;
 }
 
-export const ArtworkDetailPage: FC<ArtworkDetailPageProps> = ({ artwork }) => {
-  const collectionPage = `/collection/${artwork?.collection?.id}`;
+export const ArtworkDetailPage: FC<ArtworkDetailPageProps> = ({
+  artwork,
+  collection,
+}) => {
+  const collectionPage = `/collection/${artwork?.collectionId}`;
+
   return (
     <>
       <div className="text-center mb-4 flex flex-col">
         <p className="font-bold text-5xl mb-4">{artwork.title}</p>
 
-        {artwork.collection && (
+        {collection && (
           <Link href={collectionPage} className="text-orange-400 text-xl">
             Go back to Collection Page
           </Link>
@@ -61,13 +68,13 @@ export const ArtworkDetailPage: FC<ArtworkDetailPageProps> = ({ artwork }) => {
           <p className="mr-1 font-bold">Date Created:</p>
           <p>{artwork.createdAt}</p>
         </div>
-        {artwork.collection && (
+        {collection && (
           <>
             <div className="flex">
               <p className="mr-1 font-bold">Collection:</p>
-              {artwork.collection && <p>{artwork.collection.title}</p>}
+              {collection && <p>{collection.title}</p>}
             </div>
-            <p>{artwork.collection.description}</p>
+            <p>{collection.description}</p>
           </>
         )}
       </div>
