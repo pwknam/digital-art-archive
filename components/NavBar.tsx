@@ -25,7 +25,7 @@ const NavBar: FC = () => {
             <Link href="/">
               <li className="ml-10 text-md hover:border-b">Home</li>
             </Link>
-            <Link href="/newEntry">
+            <Link href="/new-entry">
               <li className="ml-10 text-md hover:border-b">New Entry</li>
             </Link>
             <Link href="/collection">
