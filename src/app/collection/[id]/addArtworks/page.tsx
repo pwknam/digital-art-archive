@@ -6,7 +6,7 @@ import { prisma } from "../../../../../lib/prisma";
 import { getServerSession } from "next-auth";
 import { authRouteHandler } from "@/app/api/auth/[...nextauth]/route";
 import AddArtworkMiddle from "../../../../../components/AddArtworkMiddle";
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 import Image from "next/image";
 
 async function getArtworks(userId) {
