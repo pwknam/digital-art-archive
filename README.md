@@ -10,7 +10,7 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
   <p align="center">
     A CRUD app that allows artists to digitally store and organize their body of artworks.
     <br />
-<!--     <a href="https://youtube.com"><strong>Product Demo Video »</strong></a> -->
+    <a href="https://digital-art-archive.vercel.app/"><strong>Live Site »</strong></a>
     <br />
     <br />
   </p>
